@@ -29,7 +29,7 @@ var T = new Twit({
   access_token_secret:  'yFdzkoTTc9aUu8cK2U0x4cyk5ICeSZSXZnFFA1mKzySHr'
 });
 
-var max_id = null;
+var max_id = 0;
 GrootDb.findOne({ title: 'max_id' }, function(err, reply) {
   if (err) return console.error(err);
   max_id = reply.value;
@@ -39,17 +39,19 @@ function reply() {
   T.get('statuses/mentions_timeline', {since_id: max_id}, function(e, r) {
     if(r != undefined) {
       for(var i = 0 ; i < r.length ; i++) {
+        if(max_id < r[i].id) {
           var message = '@' + r[i].user.screen_name + ' ' + groot();
-          T.post('statuses/update', { status: message}, function(err, reply) {
-            console.log("message error: " + err);
+          // T.post('statuses/update', { status: message}, function(err, reply) {
+            // console.log("message error: " + err);
             console.log("Sent a message: " + message);
-          });
+          // });
           if(max_id <= r[i].id) {
-            max_id = r[i].id + 1;
+            max_id = r[i].id;
             GrootDb.update({title: 'max_id'}, {value: max_id}, function(error, result) {
               console.log("database error: " + error);
             });
           }
+        }
       }
     }
   });
@@ -76,4 +78,4 @@ setInterval(function() {
  catch (e) {
     console.log(e);
   }
-},120000);
+},60000);
