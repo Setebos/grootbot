@@ -20,7 +20,7 @@ var grootSchema = new mongoose.Schema({
 });
 var GrootDb = mongoose.model('GrootDb', grootSchema);
 // mongoose.connect('mongodb://localhost/twitterbot');
-mongoose.connect('mongodb://moffjerjerrod@gmail.com:WVtWowLzZVB929bbx7Gj@kahana.mongohq.com:10041/TwitterBot');
+mongoose.connect('mongodb://Groot:XaS0tU4mYOFAzjN0snnL@kahana.mongohq.com:10041/TwitterBot');
 
 var T = new Twit({
   consumer_key:         '9iKX63YZHDiorDc7fiSjKYz6o',
