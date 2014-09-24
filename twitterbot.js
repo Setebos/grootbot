@@ -42,10 +42,10 @@ function reply() {
           var message = '@' + r[i].user.screen_name + ' ' + groot();
           T.post('statuses/update', { status: message}, function(err, reply) {
             console.log("message error: " + err);
-            console.log("Sent a message");
+            console.log("Sent a message: " + message);
           });
           if(max_id < r[i].id) {
-            max_id = r[i].id;
+            max_id = r[i].id + 1;
             GrootDb.update({title: 'max_id'}, {value: max_id}, function(error, result) {
               console.log("database error: " + error);
             });
