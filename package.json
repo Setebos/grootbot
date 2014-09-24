@@ -1,0 +1,29 @@
+{
+  "name": "TwitterBot",
+  "version": "1.0.0",
+  "description": "A twitter bot in nodeJS responding \"I am Groot\" to mentions.",
+  "main": "twitterbot.js",
+  "dependencies": {
+    "express": "^4.9.2",
+    "mongoose": "^3.8.16",
+    "node-restclient": "^0.0.1",
+    "twit": "^1.1.18"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Setebos/grootbot.git"
+  },
+  "keywords": [
+    "Groot"
+  ],
+  "author": "Setebos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Setebos/grootbot/issues"
+  },
+  "homepage": "https://github.com/Setebos/grootbot"
+}
