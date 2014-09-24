@@ -44,7 +44,7 @@ function reply() {
             console.log("message error: " + err);
             console.log("Sent a message: " + message);
           });
-          if(max_id < r[i].id) {
+          if(max_id <= r[i].id) {
             max_id = r[i].id + 1;
             GrootDb.update({title: 'max_id'}, {value: max_id}, function(error, result) {
               console.log("database error: " + error);
